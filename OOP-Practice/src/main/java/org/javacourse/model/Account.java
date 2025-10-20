@@ -9,7 +9,7 @@ public class Account {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Person person;
     @ManyToOne(cascade = CascadeType.ALL)
     private Bill bill;

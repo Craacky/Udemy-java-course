@@ -102,7 +102,7 @@ public class Main {
         if (account == null) return;
 
         int amount = readInt("Enter deposit amount = ");
-        depositService.deposit(account.getBill(), amount);
+        depositService.makeDeposit(account.getBill(), amount);
     }
 
     private static void makePayment(EntityManager em, PaymentService paymentService) {
@@ -121,7 +121,11 @@ public class Main {
         if (to == null) return;
 
         int amount = readInt("Enter transfer amount = ");
-        transferService.transfer(from, to, amount);
+        try {
+            transferService.transfer(from, to, amount);
+        } catch (IllegalStateException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     private static Account findAccount(EntityManager em, String prompt) {
@@ -144,10 +148,16 @@ public class Main {
             System.out.print(prompt);
             String line = SCANNER.nextLine();
             try {
-                return Integer.parseInt(line);
+                int value = Integer.parseInt(line);
+                if (value > 0) {
+                    return value;
+                } else {
+                    System.out.println("Invalid input. Please enter a positive number.");
+                }
             } catch (NumberFormatException e) {
                 System.out.println("Invalid number, try again.");
             }
         }
     }
 }
+

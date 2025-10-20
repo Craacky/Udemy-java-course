@@ -36,4 +36,7 @@ build/
 .vscode/
 
 ### Mac OS ###
-.DS_Store*.db
+.DS_Store
+
+*.db
+bank.db

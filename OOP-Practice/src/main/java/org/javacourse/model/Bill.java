@@ -26,25 +26,12 @@ public class Bill {
         this.amount = amount;
     }
 
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     public int getAmount() {
         return amount;
-    }
-
-    public void deposit(int sum) {
-        if (sum <= 0) {
-            throw new IllegalArgumentException("Sum should be positive");
-        }
-        amount += sum;
-    }
-
-    public void withdraw(int sum) {
-        if (sum <= 0) {
-            throw new IllegalArgumentException("Sum should be positive");
-        }
-        if (amount < sum) {
-            throw new IllegalArgumentException("Doesn't have enough money");
-        }
-        amount -= sum;
     }
 
     @Override

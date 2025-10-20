@@ -16,9 +16,7 @@ public class Payment {
     private int amount;
     private LocalDateTime createdAt;
 
-    public Payment() {
-    }
-
+    public Payment() {}
     public Payment(Bill bill, int amount) {
         this.bill = bill;
         this.amount = amount;
