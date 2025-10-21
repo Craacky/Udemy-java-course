@@ -13,10 +13,6 @@ public class Bill {
 
     }
 
-    public Long getId() {
-        return id;
-    }
-
     private int amount;
 
     public Bill(int amount) {
