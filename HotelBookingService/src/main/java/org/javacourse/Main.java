@@ -10,11 +10,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Create repositories
         ClientRepository clientRepository = new ClientRepository();
         HotelRepository hotelRepository = new HotelRepository();
 
-        // Create services
         ClientService clientService = new ClientService(clientRepository);
         HotelService hotelService = new HotelService(hotelRepository);
         BookingService bookingService = new BookingService(hotelRepository, clientService);
@@ -35,7 +33,7 @@ public class Main {
             System.out.print("Choose an action: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -49,7 +47,7 @@ public class Main {
                     String email = scanner.nextLine();
                     System.out.print("Enter initial balance: ");
                     double balance = scanner.nextDouble();
-                    scanner.nextLine(); // consume newline
+                    scanner.nextLine(); 
                     clientService.createClient(firstName, lastName, phone, email, balance);
                     break;
 
@@ -58,7 +56,7 @@ public class Main {
                     String hotelName = scanner.nextLine();
                     System.out.print("Enter number of rooms to create: ");
                     int numberOfRooms = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
+                    scanner.nextLine(); 
                     hotelService.createHotel(hotelName, numberOfRooms);
                     break;
 
@@ -69,7 +67,7 @@ public class Main {
                     String hotelNameToBook = scanner.nextLine();
                     System.out.print("Enter required capacity: ");
                     int requiredCapacity = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
+                    scanner.nextLine(); 
                     bookingService.bookRoom(clientEmail, hotelNameToBook, requiredCapacity);
                     break;
 

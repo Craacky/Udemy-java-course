@@ -17,15 +17,6 @@ public class HotelRepository {
         return new ArrayList<>(hotels);
     }
 
-    public Room findByCapacity(Hotel hotel, int capacity) {
-        for (Room room : hotel.getRooms()) {
-            if (room.isAvailable() && capacity <= room.getCapacity()) {
-                return room;
-            }
-        }
-        return null;
-    }
-
     public Hotel findByName(String hotelName) {
         for (Hotel hotel : hotels) {
             if (hotel.getHotelName().equals(hotelName)) {

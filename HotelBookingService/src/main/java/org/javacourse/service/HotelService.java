@@ -20,11 +20,8 @@ public class HotelService {
         ArrayList<Room> rooms = new ArrayList<>();
         
         for (int i = 0; i < numberOfRooms; i++) {
-            // Generate random capacity between 1 and 4
             int capacity = random.nextInt(4) + 1;
-            // Generate random price between 50 and 200
             double price = 50 + random.nextDouble() * 150;
-            // All rooms are initially available
             Room room = new Room(capacity, price, true);
             rooms.add(room);
         }
